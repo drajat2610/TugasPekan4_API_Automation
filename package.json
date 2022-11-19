@@ -1,0 +1,28 @@
+{
+  "name": "tugaspekan4_api_automation",
+  "version": "1.0.0",
+  "description": "latihan api automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drajat2610/TugasPekan4_API_Automation.git"
+  },
+  "author": "drajat pamuji",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drajat2610/TugasPekan4_API_Automation/issues"
+  },
+  "homepage": "https://github.com/drajat2610/TugasPekan4_API_Automation#readme",
+  "keywords": [
+    "api",
+    "automation"
+  ],
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.1.0",
+    "supertest": "^6.3.1"
+  }
+}
