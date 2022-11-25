@@ -1,0 +1,390 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 11,
+    "passes": 11,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-11-25T02:41:24.388Z",
+    "end": "2022-11-25T02:41:37.499Z",
+    "duration": 13111,
+    "testsRegistered": 11,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "90b659f9-2184-4e93-be04-97ca1fa5ec6c",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a10ce301-8581-4128-9dbe-66bac8e39d5b",
+          "title": "POST /pet",
+          "fullFile": "D:\\Sanbercode\\TugasPekan4_API_Automation\\api\\test\\1_addPet.js",
+          "file": "\\api\\test\\1_addPet.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "add a new pet to the store",
+              "fullTitle": "POST /pet add a new pet to the store",
+              "timedOut": false,
+              "duration": 1502,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .post(\"/pet\")\n    .send({\n        \"id\": 101,\n        \"category\": {\n            \"id\": 2,\n            \"name\": \"Cat\"\n        },\n        \"name\": \"Bambang\",\n        \"photoUrls\": [\n            \"string\"\n        ],\n        \"tags\": [\n            {\n                \"id\": 23,\n                \"name\": \"test tags\"\n            }\n        ],\n        \"status\": \"available\"\n    })\nexpect(response.status).to.eql(200);\nexpect(response.body.name).to.eql(\"Bambang\");",
+              "err": {},
+              "uuid": "94c3d046-c009-449e-b823-dbfa009a5370",
+              "parentUUID": "a10ce301-8581-4128-9dbe-66bac8e39d5b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "add a new pet with invalid url",
+              "fullTitle": "POST /pet add a new pet with invalid url",
+              "timedOut": false,
+              "duration": 1119,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .post(\"/pets\")\n    .send({\n        \"id\": 101,\n        \"category\": {\n            \"id\": 2,\n            \"name\": \"Cat\"\n        },\n        \"name\": \"Bambang\",\n        \"photoUrls\": [\n            \"string\"\n        ],\n        \"tags\": [\n            {\n                \"id\": 23,\n                \"name\": \"test tags\"\n            }\n        ],\n        \"status\": \"available\"\n    })\nexpect(response.status).to.eql(404);",
+              "err": {},
+              "uuid": "ca81d1b2-ebc1-4615-9f39-ccf10716bc8e",
+              "parentUUID": "a10ce301-8581-4128-9dbe-66bac8e39d5b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "94c3d046-c009-449e-b823-dbfa009a5370",
+            "ca81d1b2-ebc1-4615-9f39-ccf10716bc8e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2621,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4432c657-9972-451c-8aa6-1bb847a00ea4",
+          "title": "GET /pet",
+          "fullFile": "D:\\Sanbercode\\TugasPekan4_API_Automation\\api\\test\\2_getPetByID.js",
+          "file": "\\api\\test\\2_getPetByID.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "find pet by id",
+              "fullTitle": "GET /pet find pet by id",
+              "timedOut": false,
+              "duration": 1124,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .get(\"/pet/101\")\nexpect(response.status).to.eql(200);\nexpect(response.body.status).to.eql(\"available\".toString());",
+              "err": {},
+              "uuid": "bfee1050-52dd-414c-9e1e-acff78c08f71",
+              "parentUUID": "4432c657-9972-451c-8aa6-1bb847a00ea4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "find pet by id with invalid id",
+              "fullTitle": "GET /pet find pet by id with invalid id",
+              "timedOut": false,
+              "duration": 1126,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .get(\"/pet/0982\");\nexpect(response.status).to.eql(404);\nexpect(response.body.message).to.eql(\"Pet not found\".toString());",
+              "err": {},
+              "uuid": "773435aa-3f43-47fe-b23e-585af910ef54",
+              "parentUUID": "4432c657-9972-451c-8aa6-1bb847a00ea4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bfee1050-52dd-414c-9e1e-acff78c08f71",
+            "773435aa-3f43-47fe-b23e-585af910ef54"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2250,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "442201ea-6988-4918-8082-8bd021483587",
+          "title": "PUT /pet",
+          "fullFile": "D:\\Sanbercode\\TugasPekan4_API_Automation\\api\\test\\3_updatePet.js",
+          "file": "\\api\\test\\3_updatePet.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "updates a pet in the store",
+              "fullTitle": "PUT /pet updates a pet in the store",
+              "timedOut": false,
+              "duration": 1163,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .put(\"/pet\")\n    .send({\n        \"id\": 101,\n        \"category\": {\n            \"id\": 2,\n            \"name\": \"Cat\"\n        },\n        \"name\": \"Asep Bambang\",\n        \"photoUrls\": [\n            \"string\"\n        ],\n        \"tags\": [\n            {\n                \"id\": 23,\n                \"name\": \"test tags\"\n            }\n        ],\n        \"status\": \"available\"\n    })\nexpect(response.status).to.eql(200);\nexpect(response.body.name).to.include(\"Asep Bambang\");",
+              "err": {},
+              "uuid": "4860f53d-dcda-467e-963f-f0ae7efc84e7",
+              "parentUUID": "442201ea-6988-4918-8082-8bd021483587",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "updates a pet with invalid url",
+              "fullTitle": "PUT /pet updates a pet with invalid url",
+              "timedOut": false,
+              "duration": 1189,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .post(\"/pets\")\n    .send({\n        \"id\": 101,\n        \"category\": {\n            \"id\": 2,\n            \"name\": \"Cat\"\n        },\n        \"name\": \"Asep Bambang\",\n        \"photoUrls\": [\n            \"string\"\n        ],\n        \"tags\": [\n            {\n                \"id\": 23,\n                \"name\": \"test tags\"\n            }\n        ],\n        \"status\": \"available\"\n    })\nexpect(response.status).to.eql(404);",
+              "err": {},
+              "uuid": "a285a6e2-d0be-4135-afdc-eb862495fffd",
+              "parentUUID": "442201ea-6988-4918-8082-8bd021483587",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4860f53d-dcda-467e-963f-f0ae7efc84e7",
+            "a285a6e2-d0be-4135-afdc-eb862495fffd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2352,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "2f66dec0-a79d-4b51-a0f9-9478ef085d01",
+          "title": "GET /pet",
+          "fullFile": "D:\\Sanbercode\\TugasPekan4_API_Automation\\api\\test\\4_getPetByID_after_update.js",
+          "file": "\\api\\test\\4_getPetByID_after_update.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "find pet by id after update",
+              "fullTitle": "GET /pet find pet by id after update",
+              "timedOut": false,
+              "duration": 1125,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .get(\"/pet/101\")\nexpect(response.status).to.eql(200);\nexpect(response.body.name).to.eql(\"Asep Bambang\".toString());",
+              "err": {},
+              "uuid": "3652d6f4-8c9b-43a3-bddf-a945aaf0f737",
+              "parentUUID": "2f66dec0-a79d-4b51-a0f9-9478ef085d01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "find pet by id after update with invalid id",
+              "fullTitle": "GET /pet find pet by id after update with invalid id",
+              "timedOut": false,
+              "duration": 1225,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .get(\"/pet/0982\");\nexpect(response.status).to.eql(404);\nexpect(response.body.message).to.eql(\"Pet not found\".toString());",
+              "err": {},
+              "uuid": "78009a21-1c3b-4aae-b959-5918c6e5defa",
+              "parentUUID": "2f66dec0-a79d-4b51-a0f9-9478ef085d01",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3652d6f4-8c9b-43a3-bddf-a945aaf0f737",
+            "78009a21-1c3b-4aae-b959-5918c6e5defa"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2350,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "30139978-7053-4b8d-9241-4a7034977392",
+          "title": "DELETE /pet",
+          "fullFile": "D:\\Sanbercode\\TugasPekan4_API_Automation\\api\\test\\5_deletePet.js",
+          "file": "\\api\\test\\5_deletePet.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "delete a pet",
+              "fullTitle": "DELETE /pet delete a pet",
+              "timedOut": false,
+              "duration": 1126,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .delete(\"/pet/101\")\nexpect(response.status).to.eql(200);\nexpect(response.body.code).to.eql(200);",
+              "err": {},
+              "uuid": "0122eb95-a353-45ff-9775-3809c11289ae",
+              "parentUUID": "30139978-7053-4b8d-9241-4a7034977392",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "delete a pet with invalid id",
+              "fullTitle": "DELETE /pet delete a pet with invalid id",
+              "timedOut": false,
+              "duration": 1124,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .delete(\"/pet/5000\");\nexpect(response.status).to.eql(404);",
+              "err": {},
+              "uuid": "a12c0289-fa07-4c6d-8c2d-e2c458b9ebea",
+              "parentUUID": "30139978-7053-4b8d-9241-4a7034977392",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0122eb95-a353-45ff-9775-3809c11289ae",
+            "a12c0289-fa07-4c6d-8c2d-e2c458b9ebea"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2250,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "0f31d0f5-49f9-4438-ab2f-16b8902668b0",
+          "title": "GET /pet",
+          "fullFile": "D:\\Sanbercode\\TugasPekan4_API_Automation\\api\\test\\6_getPetByID_after_delete.js",
+          "file": "\\api\\test\\6_getPetByID_after_delete.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "find pet by id after delete",
+              "fullTitle": "GET /pet find pet by id after delete",
+              "timedOut": false,
+              "duration": 1220,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .get(\"/pet/101\")\nexpect(response.status).to.eql(404);\nexpect(response.body.type).to.eql(\"error\".toString());\nexpect(response.body.message).to.eql(\"Pet not found\".toString());",
+              "err": {},
+              "uuid": "967b2285-5746-4f11-9594-b3ac31eb1bd7",
+              "parentUUID": "0f31d0f5-49f9-4438-ab2f-16b8902668b0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "967b2285-5746-4f11-9594-b3ac31eb1bd7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1220,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
